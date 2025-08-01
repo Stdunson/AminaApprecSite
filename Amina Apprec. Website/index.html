@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amina Appreciation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f6fbf7;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 40px;
+            color: #a259c6;
+            font-size: 2.5em;
+        }
+
+        p{
+            text-align: left;
+            padding: 20px;
+        }
+        .photo-frame {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 16px;
+            margin: 40px auto;
+            max-width: 400px;
+            width: 90vw;
+        }
+        .photo-frame img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            border: 6px solid darkseagreen;
+            background: #fff;
+            height: auto;
+            min-height: 0;
+        }
+        .appreciation-text {
+            font-size: 1.3em;
+            color: #444;
+            margin: 30px auto 0;
+            max-width: 600px;
+        }
+        @media (max-width: 500px) {
+            .photo-frame {
+                max-width: 98vw;
+                gap: 10px;
+            }
+            .photo-frame img {
+                aspect-ratio: 1 / 1;
+                min-height: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Corner Photos (static, above title) -->
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 700px; margin: 32px auto 0; padding: 0 32px;">
+        <img src="hibiscus/purple-hibiscus-png.png" alt="Top Left Hibiscus" style="width: 70px; height: 70px; object-fit: contain; border-radius: 12px;">
+        <img src="hibiscus/purple-hibiscus-png.png" alt="Top Right Hibiscus" style="width: 70px; height: 70px; object-fit: contain; border-radius: 12px;">
+    </div>
+
+    <h1>Amina Appreciation Day Website</h1>
+    <div class="photo-frame" id="photoFrame">
+        <!-- Images will be injected here -->
+    </div>
+    <p class="appreciation-text">
+        Dear Amina,
+        <br></br>
+        I wanted to make this for you, because I can’t begin to show my full appreciation for you, and this was the least I could do. Thank you for being such a ray of sunshine in my life. Every moment with you, whether happy or sad, relaxed or tense, cheerful or moody, is a moment I cherish. I love your vibrant personality. I love hearing about the things you’re interested in and the things on your mind. Even though I don’t always understand, and I may say something that makes you mad, you continue to tell me every time, and my appreciation for that is limitless. I love seeing you in a cheerful mood, but I love being able to help you out when you’re feeling down as well. I love hearing about your values, beliefs, and your dreams & aspirations. I love the surprise of seeing what you wear each day, and I love seeing every time you change your hairstyle. Every talk, every hug, every moment in your presence, I fall more in love. Thank you for choosing to spend your precious with me. Words can’t describe my gratitude, and I will put my all into making sure I’m worth your while.
+        <br></br>
+        This website is a little picture frame of my favorite pictures of you and my favorite pictures of us that I’ve gotten during our time together. I love you infinitely my wife to be, and happy girlfriend day!
+        <br></br>
+        Love, Shavaughn
+        <br></br>
+    </p>
+    <!-- Bottom Corner Photos (static, below paragraph) -->
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 700px; margin: 0 auto 32px; padding: 0 32px;">
+        <img src="hibiscus/purple-hibiscus-png.png" alt="Bottom Left Hibiscus" style="width: 70px; height: 70px; object-fit: contain; border-radius: 12px;">
+        <img src="hibiscus/purple-hibiscus-png.png" alt="Bottom Right Hibiscus" style="width: 70px; height: 70px; object-fit: contain; border-radius: 12px;">
+    </div>
+    <script>
+        const photoList = [
+            'photos/IMG_2310.jpeg',
+            'photos/IMG_1073.jpeg',
+            'photos/IMG_0446.jpeg',
+            'photos/IMG_0652.jpeg',
+            'photos/IMG_0992.jpeg',
+            'photos/IMG_0662.jpeg',
+            'photos/IMG_1171.jpeg',
+            'photos/IMG_0082.jpeg',
+            'photos/IMG_1037.jpeg',
+            'photos/IMG_1087.jpeg',
+            'photos/IMG_0125.jpeg',
+            'photos/IMG_1308.jpeg',
+            'photos/IMG_3068.jpeg',
+            'photos/IMG_0707.jpeg',
+            'photos/IMG_0236.jpeg',
+            'photos/IMG_2272.jpeg',
+            'photos/IMG_1400.jpeg',
+            'photos/IMG_0081.jpeg',
+            'photos/IMG_3065.jpeg',
+            'photos/IMG_1070.jpeg',
+            'photos/IMG_0237.jpeg',
+            'photos/IMG_0943.jpeg',
+            'photos/lp_image.jpeg',
+            'photos/IMG_0142.jpeg',
+            'photos/Screenshot 2025-08-01 at 5.05.08 PM.png',
+            'photos/IMG_0465.jpeg',
+            'photos/IMG_1066.jpeg',
+            'photos/IMG_3376.jpeg',
+        ];
+
+        const frame = document.getElementById('photoFrame');
+        let currentIndex = 0;
+        const PHOTOS_AT_A_TIME = 4;
+        function showPhotos() {
+            frame.innerHTML = '';
+            for (let i = 0; i < PHOTOS_AT_A_TIME; i++) {
+                const img = document.createElement('img');
+                const idx = (currentIndex + i) % photoList.length;
+                img.src = photoList[idx];
+                img.alt = `Amina photo ${idx+1}`;
+                frame.appendChild(img);
+            }
+            currentIndex = (currentIndex + PHOTOS_AT_A_TIME) % photoList.length;
+        }
+        showPhotos();
+        setInterval(showPhotos, 7000);
+    </script>
+</body>
+</html>
